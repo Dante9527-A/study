@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var arr = ['hello',1232,true,'world'];
+    var key = prompt('请输入内容');
+    // 接收用户输入的内容 判断内容是否在数组中
+    // arr.indexOf()
+    // 14:53~15:10
+    // console.log(arr.indexOf(key));
+
+    // arr-->str-->arr
+    // 将数组转成字符串 将字符串按逗号分割，结果还是数组
+    // 数组中的内容全部为字符串类型
+    var strArr = arr.join().split(',');
+    console.log(strArr);
+
+    if(strArr.indexOf(key)==-1){
+      console.log('不存在')
+    }else{
+      console.log('存在')
+    }
+  </script>
+</body>
+</html>

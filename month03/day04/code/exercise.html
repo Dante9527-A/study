@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+
+  <style>
+    #parent{
+      width: 180px;
+      border: 1px solid #000;
+    }
+    #parent>span{
+      width: 35px;
+      font-size: 14px;
+      text-align: center;
+      color: #fff;
+      background-color: #e4393c;
+      display: block;
+      border-radius: 0 2px 2px 0;
+      margin-left:2px; 
+    }
+
+    /* 秒杀 样式 */
+    #parent>.ms{
+      color: #aaa;
+      text-align: center;
+    }
+    /* 母婴馆 */
+    #parent>.mc{
+      font-size: 18px;
+      /* margin-left:42px;
+      margin-top: -5px; */
+      margin: -5px 0 0 42px;
+    }
+    /* 10:55~11:10 */
+    /* 图片 */
+    #parent>.pic{
+      text-align: center;
+      margin: 5px 0;
+      /* 让div在parent中居中 */
+      /* width: 89px;
+      height: 95px;
+      margin: 0 auto; */
+    }
+  </style>
+
+</head>
+<body>
+  <!-- 练习 -->
+  <div id="parent">
+    <span>低价</span>
+    <div class="mc">母婴馆</div>
+    <div class="ms">秒杀低至亿元</div>
+    <div class="pic">
+      <img src="../imgs/img01.png" alt="">
+    </div>
+  </div>
+</body>
+</html>

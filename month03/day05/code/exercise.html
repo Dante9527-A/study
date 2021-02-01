@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 练习  接收用户输入的月份 判断这个月份有多少天
+    // 2月默认28天
+
+    var month = prompt('请输入月份');
+    // 1 3 5 7 8 10 12 --》31天
+    // 4 6 9 11 --》30天
+    // 2 --》28天
+    // if(month == 1){
+    //   alert('31天')
+    // }else if(month == 2){
+    //   alert('28天')
+    // }else if(month == 3){
+    //   alert('31天')
+    // }else if(month == 4){
+    //   alert('30天')
+    // }
+
+    // if(month == 2){
+    //   alert('28天')
+    // }else if(month == 4){
+    //   alert('30天')
+    // }else if(month == 6){
+    //   alert('30天')
+    // }else if(month == 9){
+    //   alert('30天')
+    // }else if(month == 11){
+    //   alert('30天')
+    // }else{
+    //   alert('31天')
+    // }
+
+
+    if(month == 2){
+      alert('28天')
+    }else if(month == 4 || month == 6 || month == 9 || month == 11){
+      alert('30天')
+    }else{
+      alert('31天')
+    }
+    // 休息 10:53～11：08
+    
+    
+  </script>
+</body>
+
+</html>

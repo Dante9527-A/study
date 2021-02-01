@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <input id="key" type="text" placeholder="请输入邮箱 ">
+  <button id="btn">解析</button>
+  <h1 id="show">xxx</h1>
+
+  <script>
+    var key = document.getElementById('key');
+    var btn = document.getElementById('btn');
+    var show = document.getElementById('show');
+    // 休息+练习 15:54~16:15
+    // 当按钮btn被单击时  获取文本框key的内容
+    // 截取出用户名和服务商 将结果放在show中显示
+    // key.value
+    // show.innerHTML = xxx
+    btn.onclick = function () {
+      var str = key.value;
+      // var index = str.indexOf('@');
+      // var u = str.substring(0, index);
+      // var f = str.substring(index + 1);
+      // show.innerHTML = `用户名${u},服务商${f}`;
+      
+      var arr = str.split('@');
+      // console.log(str.split('@'));
+      show.innerHTML = `用户名${arr[0]},服务商${arr[1]}`;
+    }
+
+
+    // 根据用户输入的邮箱 解析出用户名和服务商
+    // shibw@tedu.cn
+    // 用户名shibw,服务商tedu.cn
+    // @之前的是用户名  @之后的是服务商
+    // indexOf('@')
+    // var str = 'qtx@tedu.cn'
+    // var index = str.indexOf('@');
+    // var u = str.substring(0, index);
+    // var f = str.substring(index + 1);
+    // console.log(`用户名${u},服务商${f}`);
+  </script>
+</body>
+
+</html>

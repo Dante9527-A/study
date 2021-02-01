@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>三级联动的下拉菜单</title>
+</head>
+<body>
+  <select name="" id="prov">
+    <option value="0">请选择</option>
+  </select>
+
+  <select name="" id="city">
+    <option value="0">请选择</option>
+  </select>
+
+  <select name="" id="area">
+    <option value="0">请选择</option>
+  </select>
+
+  <script src="../js/jquery.min.js"></script>
+  <script src="../js/data.js"></script>
+  <script>
+    console.log(data);
+    var $prov = $('#prov');
+    var $city = $('#city');
+    var $area = $('#area');
+    // 练习 11:25~11:40 参考exercise.html 
+    // 遍历data 在页面$prov中添加省份
+    $.each(data,function(i,prov){
+      $prov.append(`<option value="${prov.provId}">${prov.provname}</option>`)
+    })
+    // 当用户选择省份时 加载省份对应的城市
+    $prov.change(function(){
+      // 初始化城市和地区下拉菜单
+      $city.html('<option value="0">请选择</option>')
+      $area.html('<option value="0">请选择</option>')
+      
+      $.each(data,function(i,prov){
+        if(prov.provId == $prov.val()){
+          // $city.html('<option value="0">请选择</option>')
+          // $area.html('<option value="0">请选择</option>')
+          $.each(prov.citys,function(i,city){
+            $city.append(`<option value="${city.cityId}">${city.cityname}</option>`)
+          })
+        }
+      })
+    })
+  
+  
+    // 当用户选择城市时 加载城市对应的地区
+    $city.change(function(){
+      if($city.val() == 0){
+        $area.html('<option value="0">请选择</option>')
+      }
+
+      // 找到用户选择的城市 通过城市获取地区
+      // 遍历data  判断是否为当前省份 再判断是否为当前城市
+      $.each(data,function(i,prov){
+        if(prov.provId == $prov.val()){
+          $.each(prov.citys,function(i,city){
+            if(city.cityId == $city.val()){
+              $area.html('<option value="0">请选择</option>')
+              $.each(city.areas,function(i,area){
+                $area.append(`<option value="${area.areaId}">${area.areaname}</option>`)
+              })
+            }
+          })
+        }
+      })
+
+      // 遍历地区数组 将内容放在页面上
+    })
+  </script>
+</body>
+</html>

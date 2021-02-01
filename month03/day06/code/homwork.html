@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        ul{
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+        li{
+            float: left;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li><img src="../imgs/bk0-8.jpg" alt=""></li>
+        <li><img src="../imgs/bk1-8.jpg" alt=""></li>
+        <li><img src="../imgs/bk2-8.jpg" alt=""></li>
+        <li><img src="../imgs/bk3-8.jpg" alt=""></li>
+    </ul>
+    <script>
+        var imgs = document.getElementsByTagName('img');
+        // ../imgs/bk${num}-8.jpg
+        var arr = ['../imgs/bk0-8.jpg','../imgs/bk1-8.jpg',
+                   '../imgs/bk2-8.jpg','../imgs/bk3-8.jpg',
+                   '../imgs/bk4-8.jpg','../imgs/bk5-8.jpg',
+                   '../imgs/bk6-8.jpg','../imgs/bk7-8.jpg',
+                   '../imgs/bk8-8.jpg','../imgs/bk9-8.jpg'];
+
+        // num = Math.random()
+        // `../imgs/bk${num}-8.jpg`
+        // num = Math.floor(num*10)
+        // console.log(num)
+        arr.sort(function(a,b){
+            return 0.5 - Math.random()
+        })
+        console.log(arr)
+
+        for (var i = 0 ; i < imgs.length;i++){
+            imgs[i].src = arr[i];
+        }        
+        console.log(arr)
+    </script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>事件处理</title>
+
+  <script src="../js/jquery.min.js"></script>
+  <script>
+    // window.onload = function () {
+    //   // 文档加载完毕后执行的代码
+    //   $('#btn').click(function () {
+    //     $('body').prepend('<h1>这是JS生成的标签</h1>')
+    //   })
+    // }
+
+    $(function(){
+      console.log('这是head执行的代码')
+      $('#btn').click(function () {
+        $('body').prepend('<h1>这是JS生成的标签</h1>')
+      })
+
+      // $('h1').click(function(){
+      //   console.log('hello');
+      //   $(this).css('color','red');
+      // })
+      // 事件委托
+      // 当子元素是使用JS生成的页面对象时，如果直接绑定事件，由于代码的执行顺序可能会找不到生成的元素
+      // 可以考虑将时间绑定给页面中已经存在的父元素，为父元素添加事件，同时指定子元素的选择器，当父元素触发事件时，会检测事件触发的元素，如果是指定的子元素触发就执行功能，如果不是就不执行
+      $('body').on('click','h1',function(){
+        $(this).css('color','red');
+      })
+    })
+  </script>
+
+</head>
+
+<body>
+  <button id="btn">添加元素</button>
+  <script>
+    $(function(){
+      console.log('这是最后执行的代码')
+    })
+    // window.onload = function(){
+    //   console.log('这是最后执行的代码')
+    // }
+    
+  </script>
+</body>
+
+</html>

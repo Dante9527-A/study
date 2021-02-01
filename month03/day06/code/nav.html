@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    ul{
+      margin: 0;
+      padding: 0;
+      /* 去掉列表默认样式 */
+      list-style: none;
+    }
+    li{
+      display: inline-block;
+    }
+
+    .first{
+      color: #888;
+    }
+    /* 14:55~15:10 */
+    .item{
+      /* margin-left:20px;  */
+      margin: 0 10px;
+      padding: 0 3px;
+    }
+    .active  , .item:hover{
+      background-color: red;
+      color: #fff;
+      border-radius: 2px;
+    }
+  </style>
+</head>
+<body>
+  <ul>
+    <li class="first">难度：</li>
+    <li class="item">全部</li>
+    <li class="item">初级</li>
+    <li class="item active">中级</li>
+    <li class="item">高级</li>
+  </ul>
+
+  <button id="btn">demo</button>
+
+  <script>
+    // day03/exercise2.html
+    // 找到全部 初级 中级  高级 按钮
+    var items = document.getElementsByClassName('item');
+    console.log(items);
+    // 09:50~10:05
+    // 遍历元素 添加点击样式
+    for(var i=0;i<items.length;i++){
+      items[i].onclick = function(){
+        // this 表示调用函数的当前对象
+        // console.log(this.innerHTML)
+
+        // 找到所有的item 清除class active
+        for(var j = 0;j<items.length;j++){
+          items[j].className = 'item';
+        }
+        // 为当前对象添加class active
+        // 为了避免和关键词class冲突 元素的class属性名叫做className
+        this.className = 'item active';
+      }
+    }
+
+
+
+    // 外部函数只是提供程序运行的环境(i) 真正执行功能的是内部的匿名函数
+    // for(var i=0;i<items.length;i++){
+    //   items[i].onclick = (function (i){
+    //     return function(){
+    //       console.log(items[i])
+    //       alert(items[i].innerHTML)
+    //     }
+    //   })(i)
+    // }
+    // console.log(i)//4
+
+    
+    
+
+    // var item0 = func(0); 
+    // item0();
+    // var item1 = func(1);
+    // item1();
+
+
+
+  </script>
+
+  <script>
+    // var x = prompt('请输入第一个值')
+    // var y = prompt('请输入第二个值')
+    // var btn = document.getElementById('btn');
+    // btn.onclick = function(){
+    //   myadd(Number(x),Number(y))
+    // }
+    // function myadd(x,y){
+    //   console.log(x+y)
+    // }
+  </script>
+
+</body>
+</html>

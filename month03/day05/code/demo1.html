@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // var year = prompt('请输入年份 ');
+    
+    // 能被4整除的同时不能被100整除  或者能被400整除
+    // year % 4 == 0 and year % 100 != 0 or year % 400 == 0
+    // python   and   -->  &&
+    //          or    -->  ||
+    //          not   -->  !
+    // var res = year % 4 == 0 && year % 100 != 0 || year % 400 == 0;
+    // console.log(res);
+
+
+
+    // &&  一假俱假
+    // ||  一真俱真
+    // var a = 10;
+    // var b = 20;
+
+    // 短路逻辑  在逻辑运算中 如果前面表达式能直接得到逻辑运算的结果 那么后面表达式就不再执行
+    // false && xxx
+    // true || xxx
+    // console.log(a>b&&hahah)
+
+    // 09:57~10:12
+    var age = prompt('请输入年龄');//50
+    // 如果年龄不满18  弹框提示 禁止访问
+    // 如果age小于18 前面表达式的结果为true 程序会向后面继续执行  弹出提示框
+    // 如果age不小于18 前面表达式的结果为false 形成短路，后面程序不执行
+    age<18&&alert('禁止访问');
+  </script>
+</body>
+</html>

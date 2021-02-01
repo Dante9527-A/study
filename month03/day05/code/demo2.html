@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>作用域</title>
+</head>
+<body>
+  <script>
+    // 17:10~17:25
+    function fun(x){
+      return function(y){
+        console.log(x+y)
+      }
+      // inner()
+    }
+    var add10 = fun(10);
+    inner(20);
+    inner(5);
+    inner(15);
+
+    var add20 = fun(20);
+    add20(20)
+    add20(5)
+
+
+
+
+    // var a = 10;
+    // function fun(){
+    //   a++;//修改全局变量
+    //   console.log(a);
+    // }
+
+    // function fun(a){
+    //   a++;//参数a
+    //   console.log(a);//11
+    // }
+    // fun(a);
+    // console.log(a);//10
+  
+  </script>
+</body>
+</html>

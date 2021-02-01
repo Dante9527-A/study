@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>二级联动的下拉菜单</title>
+</head>
+
+<body>
+  <select name="" id="city">
+    <option value="0">请选择</option>
+  </select>
+  <select name="" id="area">
+    <option value="0">请选择</option>
+  </select>
+
+  <script src="../js/jquery.min.js"></script>
+  <script>
+    // 页面向服务器请求数据  服务器获取请求 查询数据库，将结果响应给页面
+    var cityArr = [
+      {
+        'cityId': 1001, 'cityName': '北京', 'areas': [
+          { 'areaId': 10011, 'areaName': '东城' },
+          { 'areaId': 10012, 'areaName': '西城' },
+        ]
+      },
+      { 
+        'cityId': 1002, 'cityName': '上海',
+        'areas': [
+          { 'areaId': 10021, 'areaName': '黄埔' },
+          { 'areaId': 10022, 'areaName': '浦东' },
+        ]
+      },
+    ]
+    // 页面接收结果 将数据变成页面标签添加到页面上
+    // 从cityArr中获取城市信息 生成option 添加到页面#city中
+    // 10:00~10:15
+    $.each(cityArr,function(i,city){
+      // console.log(city);
+      $('#city').append(`<option value="${city.cityId}">${city.cityName}</option>`)
+    })
+
+    $('#city').change(function(){
+      if($('#city').val()==0){
+        // 用户点的是请选择 重置地区
+        $('#area').html('<option value="0">请选择</option>')
+        return
+      }
+      // 11:00~11:15
+      // console.log('hello')
+      // 找到用户当前选择的城市
+      console.log($('#city').val())
+      // 练习 10:28~10:40
+      // 遍历cityArr 如果下拉菜单的值和当前城市的cityId一致，就找到当前用户选择的城市
+      $.each(cityArr,function(i,city){
+        if(city.cityId == $('#city').val()){
+          console.log(city.areas);
+          // 先重置地区下拉菜单 只保留请选择选择项
+          $('#area').html('<option value="0">请选择</option>')
+          // 然后再加载地区
+          // 遍历地区数组将内容放在页面#area上
+          $.each(city.areas,function(i,area){
+            $('#area').append(`<option value="${area.areaId}">${area.areaName}</option>`)
+          })
+        }
+      })
+    })
+  </script>
+</body>
+
+</html>

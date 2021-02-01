@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>自增自减运算</title>
+</head>
+<body>
+  <script>
+    var a = 1;
+    // a = a+1;
+    // a += 1;
+    // a++;  
+
+    // ++a 前缀  先递增后返回值 
+    // a++ 后缀  先返回值后递增 
+    // var a=1  a++返回1  ++a返回2
+    // 自增自减运算本身有返回值，如果参与其它运算时，使用的是自增自减运算的返回值参与 不会使用变量的值
+    //表达式的值  1      3     3
+    console.log(a++ + ++a + a++);
+    //a的值  1       2     3
+
+    // a = 4     3     3     4
+    console.log(--a - a++ + a--);
+    //       4      3     4
+
+
+
+
+    // a++的返回值  1     2     3
+    // console.log(  a++ + a++ + a++);
+    // a的值     1    2      3     4
+  </script>
+</body>
+</html>
